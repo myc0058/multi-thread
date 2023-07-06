@@ -6,7 +6,7 @@ namespace MultiThread
         private static void Main(string[] args)
         {
             //Section2.StartUp();       
-            Section3.StartUp();
+            new Section3().StartUp();
         }
     }
 }

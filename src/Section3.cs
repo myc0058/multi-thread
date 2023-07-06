@@ -1,10 +1,10 @@
 ﻿namespace MultiThread
 {
-    public static class Section3
+    public class Section3
     {
-        private static bool shouldStop = false;
+        private bool shouldStop = false;
 
-        public static void StartUp() {
+        public void StartUp() {
             Console.WriteLine("Process Start!");
 
             //Thread 오브젝트 만들기
@@ -30,7 +30,7 @@
             Console.WriteLine("All done!");
         }
         
-        private static void DoWork()
+        private void DoWork()
         {
             while(!shouldStop) {
                 Console.WriteLine("shouldStop: " + shouldStop);
