@@ -18,8 +18,9 @@
             Thread.Sleep(1000); // thread1이 먼저 실행되도록 하기 위함
             
             // Atomicity, Visibility, prevent ReOrdering
-            //shouldStop = true; // visibility 문제
             Volatile.Write(ref shouldStop, true);
+
+            //shouldStop = true; // visibility 문제
             
             //Thread 종료 대기
             thread1.Join();
