@@ -2,6 +2,9 @@
 {
     public class Section4Bad
     {
+        // Guarded Suspension Pattern
+        // https://en.wikipedia.org/wiki/Guarded_suspension
+
         private bool shouldStop = false;
 
         private Queue<string> requests = new Queue<string>();
@@ -46,9 +49,9 @@
                 {
                     string request = DateTime.Now.ToString();
                     requests.Enqueue(request);
-                    Monitor.PulseAll(requests);
+                    Monitor.PulseAll(requests); //일해라 핫산!!
                     Console.WriteLine(Thread.CurrentThread.Name + " : " + request);
-                    Thread.Sleep(1000); // Problem
+                    Thread.Sleep(1000); // 성능 이슈
                 }
             }
         }
@@ -66,7 +69,7 @@
                     else
                     {
                         Console.WriteLine(Thread.CurrentThread.Name + " : Wait");
-                        Monitor.Wait(requests);
+                        Monitor.Wait(requests); // 일 없으니까 쉴래요
                         Console.WriteLine(Thread.CurrentThread.Name + " : Awake");
                     }
                 }
