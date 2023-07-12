@@ -52,7 +52,7 @@
                     Monitor.PulseAll(requests); //일해라 핫산!!
                     Console.WriteLine(Thread.CurrentThread.Name + " : " + request);
                 }
-                Thread.Sleep(1000); // 성능 이슈
+                Thread.Sleep(1000);
             }
         }
 
