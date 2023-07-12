@@ -9,8 +9,7 @@ namespace MultiThread
 
             //Section2.StartUp();       
             //new Section3().StartUp();
-            new GuardedSuspension().StartUp();
-            //new Section4Good().StartUp();
+            new Section4Bad().StartUp();
         }
     }
 }
