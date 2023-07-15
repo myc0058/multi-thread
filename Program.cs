@@ -1,5 +1,4 @@
-﻿
-namespace MultiThread
+﻿namespace MultiThread
 {
     internal class Program
     {
@@ -11,7 +10,8 @@ namespace MultiThread
             //new Section3().StartUp();
             //new Section4().StartUp();
             //new Section5().StartUp();
-            new Section6().StartUp();
+            //new Section6().StartUp();
+            new Section7().StartUp();
         }
     }
 }

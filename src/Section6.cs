@@ -5,7 +5,6 @@ namespace MultiThread
     public class Section6
     {
         // Producer Consumer Pattern
-        // https://en.wikipedia.org/wiki/Guarded_suspension
 
         private bool shouldStop = false;
 
@@ -59,7 +58,6 @@ namespace MultiThread
                 var request = DateTime.Now.ToString();
                 requests.Enqueue(request);
                 Console.WriteLine(Thread.CurrentThread.Name + " : " + request);
-                Thread.Sleep(100);
             }
         }
 
@@ -72,8 +70,6 @@ namespace MultiThread
                 {
                     Console.WriteLine(Thread.CurrentThread.Name + " : " + request);
                 }
-
-                Thread.Sleep(100);
             }
         }
     }
