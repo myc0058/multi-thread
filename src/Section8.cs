@@ -16,15 +16,15 @@ namespace MultiThread
 
             var thread1 = new Thread(DoWork);
             thread1.Name = "Brown";
-            thread1.Start(thread1.Name);
+            thread1.Start("Send email");
 
             var thread2 = new Thread(DoWork);
             thread2.Name = "Bob";
-            thread2.Start(thread2.Name);
+            thread2.Start("Write DB");
 
             var thread3 = new Thread(DoWork);
             thread3.Name = "Alice";
-            thread3.Start(thread3.Name);
+            thread3.Start("Massive Calculation");
 
             thread1.Join();
             thread2.Join();
