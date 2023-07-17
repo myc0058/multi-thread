@@ -75,8 +75,6 @@ namespace MultiThread
             Console.WriteLine("Press any key to stop...");
             Console.ReadKey();
 
-            //Volatile.Write(ref shouldStop, true);
-
             taskQueue.CompleteAdding();
 
             foreach (var thread in workerThreads)
