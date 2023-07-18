@@ -7,10 +7,6 @@ namespace MultiThread
         // Worker Thread Pattern
         private BlockingCollection<string> taskQueue = new BlockingCollection<string>(10);
 
-        public Section9()
-        {
-        }
-
         public void StartUp()
         {
             Console.WriteLine("Process Start!");
