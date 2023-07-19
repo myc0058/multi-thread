@@ -15,7 +15,7 @@ namespace MultiThread
                     Thread.Sleep(100);
                 }
 
-                return result;
+                return result ?? string.Empty;
             }
 
             public void Startup(Action action)
