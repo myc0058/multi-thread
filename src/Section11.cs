@@ -28,6 +28,8 @@ namespace MultiThread
                 }
             }).Start();
 
+            Console.WriteLine("Press any key to exit...");
+
             Console.ReadKey();
         }
 
