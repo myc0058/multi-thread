@@ -64,15 +64,22 @@ namespace MultiThread
         {
             while (Volatile.Read(ref shouldStop) == false)
             {
-                if (Volatile.Read(ref readCount) > 0 || Volatile.Read(ref writeCount) > 0)
+                var result = Interlocked.CompareExchange(ref writeCount, 1, 0);
+
+                if (result != 0)
                 {
                     continue;
                 }
 
-                var request = DateTime.Now.ToString();
-                Interlocked.Increment(ref writeCount);
                 try
                 {
+                    if (Volatile.Read(ref readCount) > 0)
+                    {
+                        continue;
+                    }
+
+                    var request = DateTime.Now.ToString();
+
                     Volatile.Write(ref message, request);
                     Console.WriteLine(Thread.CurrentThread.Name + " : " + request);
                 }
