@@ -3,7 +3,11 @@
 /***********************************************************************
 
 2024-03-02 writeCount에 의한 배타제어가 되지 않는 문제를 수정하였습니다.
-
+2024-03-03 이 예제는 Read Write Lock Pattern을 Lock을 사용하지 않고 
+           Interlocked 클래스만 사용해서 구현하려 했으나
+           readCount와 writeCount의 비교와 변경이 Atomic Operation이 되지 않기에
+           Lock 없이 구현이 불가능한 예제였고 이 코드는 문제가 있습니다.
+           
 ************************************************************************/
 
 namespace MultiThread
@@ -112,7 +116,7 @@ namespace MultiThread
                 try
                 {
                     string readMessage = Volatile.Read(ref message);
-                    Console.WriteLine(Thread.CurrentThread.Name + " : " + message);
+                    Console.WriteLine(Thread.CurrentThread.Name + " : " + readMessage);
 
                 }
                 finally
